@@ -12,6 +12,11 @@ public class GameBoard extends JFrame {
     private void initializeUI() {
         setTitle("Chess Board");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Set a fixed size for the JFrame
+        setSize(800, 600);
+        setResizable(false);
+        
         setLayout(new GridLayout(6, 7));
 
         chessButtons = new JButton[6][7];
@@ -75,12 +80,11 @@ public class GameBoard extends JFrame {
         chessButtons[4][4].setIcon(yellowPoint);
         chessButtons[4][5].setIcon(yellowPoint);
         chessButtons[4][6].setIcon(yellowPoint);
-
     }
 
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image img = icon.getImage();
-        Image resizedImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH); // Scale the Image to the specified width and height using Image.SCALE_SMOOTH
+        Image resizedImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImg);
     }
 
