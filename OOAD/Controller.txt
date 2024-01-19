@@ -1,0 +1,50 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Controller {
+    private Board board;
+    private BoardView boardView;
+
+    public Controller(Board board, BoardView boardView) {
+        this.board = board;
+        this.boardView = boardView;
+
+        // Add action listeners to the buttons in the view
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 7; col++) {
+                boardView.addButtonListener(row, col, new ButtonClickListener(row, col));
+            }
+        }
+    }
+
+    // ActionListener implementation for the board buttons
+    private class ButtonClickListener implements ActionListener {
+        private int row;
+        private int col;
+
+        public ButtonClickListener(int row, int col) {
+            this.row = row;
+            this.col = col;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Handle button click event
+            // For simplicity, let's assume this is where you want to perform the move logic
+            // You can modify this part based on your actual game rules
+            // Example: Move a piece from (row, col) to a new position
+            // For now, we'll just swap the clicked piece with the piece in the top-left corner (0, 0)
+            board.movePiece(row, col, 0, 0);
+
+            // Update the GUI to reflect the changes
+            boardView.updateGUI();
+        }
+    }
+
+    public static void main(String[] args) {
+        // Instantiate the model, view, and controller
+        Board board = new Board();
+        BoardView boardView = new BoardView(board);
+        Controller controller = new Controller(board, boardView);
+    }
+}
