@@ -39,7 +39,6 @@ public class Board {
         pieces[4][4] =  new Point(Piece.PieceColor.YELLOW, "yellow_point.jpeg");
         pieces[4][5] =  new Point(Piece.PieceColor.YELLOW, "yellow_point.jpeg");
         pieces[4][6] =  new Point(Piece.PieceColor.YELLOW, "yellow_point.jpeg");
-        
     }
 
     public Piece getPiece(int row, int col) {
@@ -47,6 +46,9 @@ public class Board {
         return pieces[row][col];
     }
 
+    public void setPiece(int row, int col, Piece piece) {
+        pieces[row][col] = piece;
+    }
 
     public void movePiece(int fromRow, int fromCol, int toRow, int toCol) {
         // Move a chess piece from one position to another
@@ -66,5 +68,4 @@ public class Board {
         }
         return true;
     }
-
 }

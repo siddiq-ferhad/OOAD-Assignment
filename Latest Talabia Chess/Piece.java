@@ -1,15 +1,16 @@
 import javax.swing.*;
 
 public abstract class Piece {
-    
     private PieceType type;
     private PieceColor color;
     private ImageIcon icon;
+    private String iconPath;
 
     public Piece(PieceType type, PieceColor color, String iconPath) {
         this.type = type;
         this.color = color;
         this.icon = new ImageIcon(iconPath);
+        this.iconPath = iconPath;
     }
 
     public abstract boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol);
@@ -26,6 +27,10 @@ public abstract class Piece {
         return icon;
     }
 
+    public String getIconPath() {
+        return iconPath;
+    }
+
     public enum PieceType {
         HOURGLASS, PLUS, POINT, TIME, SUN
     }
@@ -35,5 +40,4 @@ public abstract class Piece {
     }
 
     //public abstract boolean isPathClear(int firstClickRow, int firstClickCol, int row, int col);
-        
 }
