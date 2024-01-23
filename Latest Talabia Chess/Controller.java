@@ -8,7 +8,7 @@ public class Controller {
     // Constructor takes an instance of the board and board view
     public Controller(Board board, BoardView boardView) {
         this.boardView = boardView;
-        this.game = new Game(board); // Initialize the Game class
+        this.game = new Game(board, boardView); // Initialize the Game class
         initializeButtonListeners();
     }
 
@@ -38,8 +38,13 @@ public class Controller {
             // Delegate the button click handling to the Game class
             game.handleButtonClick(row, col);
 
-            // Optionally, update the GUI or perform other actions based on the game state
-            boardView.updateGUI();
+            // Update the GUI
+            updateView();
         }
+    }
+
+    // Update the view based on the current state of the model (Board)
+    private void updateView() {
+        boardView.updateGUI();
     }
 }
