@@ -9,7 +9,7 @@ public class Game {
     // Constructor takes an instance of the board
     public Game(Board board, BoardView boardView) {
         this.board = board;
-        loadGameStateFromFile();
+        loadGame();
         boardView.updateGUI();
     }
 
@@ -20,14 +20,15 @@ public class Game {
         } else {
             handleSecondClick(row, col);
         }
-        saveGameStateToFile();
+        saveGame();
     }
 
     // Handle the first click on the board
     private void handleFirstClick(int row, int col) {
         Piece clickedPiece = board.getPiece(row, col);
 
-        // Check if the clicked piece is not null and belongs to the current player's turn
+        // Check if the clicked piece is not null and belongs to the current player's
+        // turn
         if (clickedPiece != null && clickedPiece.getColor() == currentPlayer) {
             firstClickRow = row;
             firstClickCol = col;
@@ -51,7 +52,7 @@ public class Game {
                 // Check if the target position is empty or has an opponent's piece
                 if (targetPiece == null || targetPiece.getColor() != currentPlayer) {
                     board.movePiece(firstClickRow, firstClickCol, row, col);
-                    switchPlayer();  // Switch the player turn after a successful move
+                    switchPlayer(); // Switch the player turn after a successful move
                 } else {
                     System.out.println("Invalid move! Cannot capture your own piece.");
                 }
@@ -78,8 +79,13 @@ public class Game {
     }
 
     // Save the game state to a file
-    public void saveGameStateToFile() {
+    public void saveGame() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("game_state.txt", false))) {
+            // Save the current player information
+            writer.write(currentPlayer.name());
+            writer.newLine();
+
+            // Save the piece information
             for (int row = 0; row < 6; row++) {
                 for (int col = 0; col < 7; col++) {
                     Piece piece = board.getPiece(row, col);
@@ -101,8 +107,15 @@ public class Game {
     }
 
     // Load the game state from a file
-    public void loadGameStateFromFile() {
+    public void loadGame() {
         try (BufferedReader reader = new BufferedReader(new FileReader("game_state.txt"))) {
+            // Load the current player information
+            String currentPlayerInfo = reader.readLine();
+            if (currentPlayerInfo != null) {
+                currentPlayer = Piece.PieceColor.valueOf(currentPlayerInfo);
+            }
+
+            // Load the piece information
             String line;
             int row = 0;
 

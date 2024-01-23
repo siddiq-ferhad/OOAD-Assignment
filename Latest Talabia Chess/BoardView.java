@@ -31,8 +31,8 @@ public class BoardView extends JFrame {
             }
         }
         
-        pack();
         setTitle("Talabia Chess");
+        pack();
         setSize(800, 800);
         setResizable(false);
         setLocationRelativeTo(null);

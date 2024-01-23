@@ -13,7 +13,7 @@ public class MenuView {
 
     private void initialize() {
         frame = new JFrame("Talabia Chess");
-        frame.setSize(800, 800);
+        frame.setSize(800, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
