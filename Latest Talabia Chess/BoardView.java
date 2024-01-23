@@ -93,7 +93,7 @@ public class BoardView extends JFrame {
                 writer.newLine();
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception appropriately (e.g., show a message to the user)
+            e.printStackTrace(); // Handle the exception appropriately
         }
     }
 
@@ -146,8 +146,10 @@ public class BoardView extends JFrame {
                 // Move to the next row
                 row++;
             }
+            System.out.println("Saved file found. Loading the previous game...\n");
+
         } catch (IOException e) {
-            System.out.println("No saved file found. Starting a new game...");
+            System.out.println("No saved file found. Starting a new game...\n");
         }
         // Repaint the GUI to reflect the changes
         revalidate();
