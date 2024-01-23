@@ -11,6 +11,7 @@ public class Game {
         this.board = board;
         loadGame();
         boardView.updateGUI();
+        System.out.println("It's now " + currentPlayer + "'s turn.");
     }
 
     // Method to handle button clicks on the board
@@ -70,6 +71,7 @@ public class Game {
     private void switchPlayer() {
         currentPlayer = (currentPlayer == Piece.PieceColor.YELLOW) ? Piece.PieceColor.BLUE : Piece.PieceColor.YELLOW;
         System.out.println("It's now " + currentPlayer + "'s turn.");
+        checkForWinningCondition();
     }
 
     // Check if the move is valid based on the piece's rules and the board state
@@ -161,5 +163,29 @@ public class Game {
         } catch (IOException e) {
             System.out.println("No saved file found. Starting a new game...\n");
         }
+    }
+
+    // Check for the winning condition
+    private void checkForWinningCondition() {
+        if (!isSunPieceOnBoard(Piece.PieceColor.YELLOW)) {
+            System.out.println("\nBLUE wins! The Sun piece has been captured.\n");
+            // Handle the end of the game here
+        } else if (!isSunPieceOnBoard(Piece.PieceColor.BLUE)) {
+            System.out.println("\nYELLOW wins! The Sun piece has been captured.\n");
+            // Handle the end of the game here
+        }
+    }
+
+    // Check if the Sun piece of the specified color is still on the board
+    private boolean isSunPieceOnBoard(Piece.PieceColor color) {
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 7; col++) {
+                Piece piece = board.getPiece(row, col);
+                if (piece != null && piece.getType() == Piece.PieceType.SUN && piece.getColor() == color) {
+                    return true; // Sun piece found, game continues
+                }
+            }
+        }
+        return false; // Sun piece not found, game ends
     }
 }
