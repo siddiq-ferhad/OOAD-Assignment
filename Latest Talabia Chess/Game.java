@@ -85,6 +85,18 @@ public class Game {
         }
     }
 
+    // start a new game
+    public void newGame(){
+        clearGameStateFile();
+        board.resetBoard(); //reset the board to initial state
+
+        firstClickRow = -1;
+        firstClickCol = -1;
+
+        System.out.println("\nYou started a new game!");
+    }
+
+
     // Save the game state to a file
     public void saveGame() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("game_state.txt", false))) {
@@ -192,5 +204,12 @@ public class Game {
             }
         }
         return false; // Sun piece not found, game ends
+    }
+    private void clearGameStateFile(){
+        try (PrintWriter writer = new PrintWriter(new FileWriter("game_state.txt"))){
+            writer.print("");
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
