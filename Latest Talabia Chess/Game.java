@@ -28,13 +28,12 @@ public class Game {
     private void handleFirstClick(int row, int col) {
         Piece clickedPiece = board.getPiece(row, col);
 
-        // Check if the clicked piece is not null and belongs to the current player's
-        // turn
+        // Check if the clicked piece is not null and belongs to the current player's turn
         if (clickedPiece != null && clickedPiece.getColor() == currentPlayer) {
             firstClickRow = row;
             firstClickCol = col;
         } else {
-            System.out.println("Invalid first click. Please select a valid piece.");
+            System.out.println("Invalid click. Please select a valid piece.");
         }
     }
 
@@ -76,8 +75,14 @@ public class Game {
 
     // Check if the move is valid based on the piece's rules and the board state
     private boolean isValidMove(Piece piece, int fromRow, int fromCol, int toRow, int toCol) {
-        return piece != null && piece.isValidMove(fromRow, fromCol, toRow, toCol) &&
+        Piece clickedPiece = board.getPiece(firstClickRow, firstClickCol);
+        
+        if (clickedPiece.getType() == Piece.PieceType.HOURGLASS) {
+            return piece != null && piece.isValidMove(fromRow, fromCol, toRow, toCol);
+        } else {
+            return piece != null && piece.isValidMove(fromRow, fromCol, toRow, toCol) &&
                 board.isPathClear(fromRow, fromCol, toRow, toCol);
+        }
     }
 
     // Save the game state to a file
