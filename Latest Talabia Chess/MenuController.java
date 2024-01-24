@@ -15,8 +15,8 @@ public class MenuController {
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == view.getStartButton()) {
                     startGame();
-                } else if (e.getSource() == view.getExitButton()) {
-                    exitGame();
+                // } else if (e.getSource() == view.getExitButton()) {
+                //     exitGame();
                 }
             }
         });
@@ -32,7 +32,7 @@ public class MenuController {
         new Controller(board, boardView);
     }
 
-    private void exitGame() {
-        System.exit(0);
-    }
+    // private void exitGame() {
+    //     System.exit(0);
+    // }
 }
