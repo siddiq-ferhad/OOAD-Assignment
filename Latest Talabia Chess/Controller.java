@@ -10,6 +10,7 @@ public class Controller {
         this.boardView = boardView;
         this.game = new Game(board, boardView); // Initialize the Game class
         initializeButtonListeners();
+        menuBarListener();
     }
 
     // Initialize button listeners for the board
@@ -19,6 +20,14 @@ public class Controller {
                 boardView.addButtonListener(row, col, new ButtonClickListener(row, col));
             }
         }
+    }
+
+    //menu bar listener
+    private void menuBarListener(){
+        boardView.addNewGameListener(new NewGameListener());
+        boardView.addSaveGameListener(new SaveGameListener());
+        //boardView.addLoadGameListener(new LoadGameListener());
+        boardView.addExitGameListener(new ExitGameListener());
     }
 
     // ActionListener implementation for the board buttons
@@ -40,6 +49,29 @@ public class Controller {
 
             // Update the GUI
             updateView();
+        }
+    }
+    private class NewGameListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            game.newGame();
+
+            // //update GUI
+            boardView.updateGUI();
+        }
+    }
+    private class SaveGameListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            System.out.println("You click Save Game Button");
+        }
+    }
+    // private class LoadGameListener implements ActionListener{
+    //     public void actionPerformed(ActionEvent e){
+    //         System.out.println("You click Load Game Button");
+    //     }
+    // }
+    private class ExitGameListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            System.exit(0);
         }
     }
 
