@@ -16,7 +16,7 @@ public class Board {
         pieces[0][3] = new Sun(Piece.PieceColor.BLUE, "blue_sun.jpeg");
         pieces[0][4] = new Time(Piece.PieceColor.BLUE, "blue_time.jpeg");
         pieces[0][5] = new Hourglass(Piece.PieceColor.BLUE, "blue_hourglass.jpeg");
-        pieces[0][6] = new Point(Piece.PieceColor.BLUE, "blue_plus.jpeg");
+        pieces[0][6] = new Plus(Piece.PieceColor.BLUE, "blue_plus.jpeg");
         pieces[1][0] = new Point(Piece.PieceColor.BLUE, "blue_point.jpeg");
         pieces[1][1] = new Point(Piece.PieceColor.BLUE, "blue_point.jpeg");
         pieces[1][2] = new Point(Piece.PieceColor.BLUE, "blue_point.jpeg");
