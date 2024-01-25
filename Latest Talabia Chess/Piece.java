@@ -38,6 +38,4 @@ public abstract class Piece {
     public enum PieceColor {
         BLUE, YELLOW
     }
-
-    //public abstract boolean isPathClear(int firstClickRow, int firstClickCol, int row, int col);
 }
