@@ -10,6 +10,4 @@ public class Sun extends Piece {
 
         return rowDiff <= 1 && colDiff <= 1;
     }
-
-    //public boolean isValidMove(int)
 }
