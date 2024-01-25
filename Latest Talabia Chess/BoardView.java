@@ -110,7 +110,7 @@ public class BoardView extends JFrame implements ComponentListener {
     @Override
     public void componentResized(ComponentEvent e){
         //update the icon size based on the frame size
-        iconSize = Math.min(getWidth() / 7, getHeight() / 6);
+        iconSize = Math.min(getWidth() / 8, getHeight() / 6);
         //Update all the button images with the new icon size
         updateGUI();
     }
