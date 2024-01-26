@@ -79,4 +79,17 @@ public class Board {
         }
         initializeBoard();
     }
+
+    public void flipBoard(){
+        Piece[][] flipBoard = new Piece[6][7];
+        for (int row = 0; row < 6; row++){
+            for (int col = 0; col < 7; col++){
+                flipBoard[5-row][6-col] = getPiece(row, col);
+            }
+        }
+        setBoard(flipBoard);
+    }
+    public void setBoard(Piece[][] board){
+        this.pieces = board;
+    }
 }
