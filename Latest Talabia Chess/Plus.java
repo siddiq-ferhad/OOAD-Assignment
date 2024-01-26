@@ -7,5 +7,4 @@ public class Plus extends Piece {
     public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol) {
         return fromRow == toRow || fromCol == toCol;
     }
-    
 }

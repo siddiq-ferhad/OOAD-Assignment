@@ -10,8 +10,6 @@ public class BoardView extends JFrame implements ComponentListener {
     private JMenuBar menuBar;
     JMenu menuList;
     JMenuItem newGameItem;
-    JMenuItem saveItem;
-    //JMenuItem loadItem;
     JMenuItem exitItem;
     private int iconSize = 64;
 
@@ -26,20 +24,16 @@ public class BoardView extends JFrame implements ComponentListener {
         buttons = new JButton[6][7];
         menuBar = new JMenuBar(); //create menubar
 
-        //create menu in menubar
+        // Create menu in menu bar
         menuList = new JMenu("Menu");
         menuBar.add(menuList);
 
-        //create menu item for file
+        // Create menu item for file
         newGameItem = new JMenuItem("New Game");
-        saveItem = new JMenuItem("Save Game");
-        //loadItem = new JMenuItem("Load Game");
         exitItem = new JMenuItem("Exit");
 
-        //add menu item to file
+        // Add menu item to file
         menuList.add(newGameItem);
-        menuList.add(saveItem);
-        //menuList.add(loadItem);
         menuList.add(exitItem);
 
 
@@ -76,12 +70,6 @@ public class BoardView extends JFrame implements ComponentListener {
     public void addNewGameListener(ActionListener NewGameListener){
         newGameItem.addActionListener(NewGameListener);
     }
-    public void addSaveGameListener(ActionListener SaveGameListener){
-        saveItem.addActionListener(SaveGameListener);
-    }
-    // public void addLoadGameListener(ActionListener LoadGameListener){
-    //     loadItem.addActionListener(LoadGameListener);
-    // }
     public void addExitGameListener(ActionListener ExitGameListener){
         exitItem.addActionListener(ExitGameListener);
     }
@@ -102,6 +90,7 @@ public class BoardView extends JFrame implements ComponentListener {
         revalidate();
         repaint();
     }
+
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         Image resizedImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImage);

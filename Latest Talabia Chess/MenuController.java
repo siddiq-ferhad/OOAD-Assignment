@@ -15,14 +15,24 @@ public class MenuController {
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == view.getStartButton()) {
                     startGame();
-                // } else if (e.getSource() == view.getExitButton()) {
-                //     exitGame();
+                } else if (e.getSource() == view.getLoadButton()) {
+                    loadGame();
                 }
             }
         });
     }
 
     private void startGame() {
+        // Dispose of the main menu view
+        view.dispose();
+        
+        // Create instances of the model and view for the game
+        Board board = new Board();
+        BoardView boardView = new BoardView(board);
+        new Controller(board, boardView, "");
+    }
+
+    private void loadGame() {
         // Dispose of the main menu view
         view.dispose();
         

@@ -13,6 +13,14 @@ public class Controller {
         menuBarListener();
     }
 
+    // Constructor takes an instance of the board, board view, and a string parameter
+    public Controller(Board board, BoardView boardView, String x) {
+        this.boardView = boardView;
+        this.game = new Game(board); // Initialize the Game class
+        initializeButtonListeners();
+        menuBarListener();
+    }
+
     // Initialize button listeners for the board
     private void initializeButtonListeners() {
         for (int row = 0; row < 6; row++) {
@@ -22,10 +30,9 @@ public class Controller {
         }
     }
 
-    //menu bar listener
+    // Menu bar listener
     private void menuBarListener(){
         boardView.addNewGameListener(new NewGameListener());
-        boardView.addSaveGameListener(new SaveGameListener());
         //boardView.addLoadGameListener(new LoadGameListener());
         boardView.addExitGameListener(new ExitGameListener());
     }
@@ -51,6 +58,7 @@ public class Controller {
             updateView();
         }
     }
+
     private class NewGameListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             game.newGame();
@@ -59,16 +67,13 @@ public class Controller {
             boardView.updateGUI();
         }
     }
-    private class SaveGameListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-            System.out.println("You click Save Game Button");
-        }
-    }
+
     // private class LoadGameListener implements ActionListener{
     //     public void actionPerformed(ActionEvent e){
     //         System.out.println("You click Load Game Button");
     //     }
     // }
+
     private class ExitGameListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             System.exit(0);

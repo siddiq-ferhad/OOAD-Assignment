@@ -7,11 +7,17 @@ public class Game {
     private int firstClickCol = -1;
 
     // Constructor takes an instance of the board
+    public Game(Board board) {
+        this.board = board;
+        System.out.println("\nIt's now " + currentPlayer + "'s turn.");
+    }
+
+    // Constructor takes instances of the board and board view
     public Game(Board board, BoardView boardView) {
         this.board = board;
         loadGame();
         boardView.updateGUI();
-        System.out.println("It's now " + currentPlayer + "'s turn.");
+        System.out.println("\nIt's now " + currentPlayer + "'s turn.");
     }
 
     // Method to handle button clicks on the board
@@ -28,7 +34,8 @@ public class Game {
     private void handleFirstClick(int row, int col) {
         Piece clickedPiece = board.getPiece(row, col);
 
-        // Check if the clicked piece is not null and belongs to the current player's turn
+        // Check if the clicked piece is not null and belongs to the current player's
+        // turn
         if (clickedPiece != null && clickedPiece.getColor() == currentPlayer) {
             firstClickRow = row;
             firstClickCol = col;
@@ -76,26 +83,26 @@ public class Game {
     // Check if the move is valid based on the piece's rules and the board state
     private boolean isValidMove(Piece piece, int fromRow, int fromCol, int toRow, int toCol) {
         Piece clickedPiece = board.getPiece(firstClickRow, firstClickCol);
-        
+
         if (clickedPiece.getType() == Piece.PieceType.HOURGLASS) {
             return piece != null && piece.isValidMove(fromRow, fromCol, toRow, toCol);
         } else {
             return piece != null && piece.isValidMove(fromRow, fromCol, toRow, toCol) &&
-                board.isPathClear(fromRow, fromCol, toRow, toCol);
+                    board.isPathClear(fromRow, fromCol, toRow, toCol);
         }
     }
 
-    // start a new game
-    public void newGame(){
+    // Start a new game
+    public void newGame() {
         clearGameStateFile();
-        board.resetBoard(); //reset the board to initial state
+        board.resetBoard(); // Reset the board to initial state
 
         firstClickRow = -1;
         firstClickCol = -1;
 
         System.out.println("\nYou started a new game!");
+        System.out.println("\nIt's now " + currentPlayer + "'s turn.");
     }
-
 
     // Save the game state to a file
     public void saveGame() {
@@ -205,10 +212,11 @@ public class Game {
         }
         return false; // Sun piece not found, game ends
     }
-    private void clearGameStateFile(){
-        try (PrintWriter writer = new PrintWriter(new FileWriter("game_state.txt"))){
+
+    private void clearGameStateFile() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("game_state.txt"))) {
             writer.print("");
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

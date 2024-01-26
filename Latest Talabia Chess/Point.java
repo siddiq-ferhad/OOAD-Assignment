@@ -18,6 +18,5 @@ public class Point extends Piece {
                     (rowDiff > 0 && rowDiff <= 2 && colDiff == 0);
 
         }
-
     }
 }

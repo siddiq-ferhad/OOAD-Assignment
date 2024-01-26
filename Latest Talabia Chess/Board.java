@@ -69,6 +69,7 @@ public class Board {
         }
         return true;
     }
+    
     public void resetBoard(){
         //clear current gameplay
         for (int row = 0; row < 6; row++) {
