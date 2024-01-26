@@ -1,4 +1,5 @@
 import java.io.*;
+import javax.swing.JOptionPane;
 
 public class Game {
     private Board board;
@@ -193,13 +194,27 @@ public class Game {
     private void checkForWinningCondition() {
         if (!isSunPieceOnBoard(Piece.PieceColor.YELLOW)) {
             System.out.println("\nBLUE wins! The Sun piece has been captured.\n");
-            // Handle the end of the game here
+            displayWinner("BLUE");
+
         } else if (!isSunPieceOnBoard(Piece.PieceColor.BLUE)) {
             System.out.println("\nYELLOW wins! The Sun piece has been captured.\n");
-            // Handle the end of the game here
+            displayWinner("YELLOW");
         }
     }
 
+    // Method to display the winner and options to start a new game or quit
+    private void displayWinner(String winner) {
+        String message = winner + " wins! The Sun piece has been captured.";
+        Object[] options = {"Restart", "Quit"};
+        int choice = JOptionPane.showOptionDialog(null, message, "Game Over", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+
+        if (choice == JOptionPane.YES_OPTION) {
+            newGame();
+        } else {
+            System.exit(0);
+        }
+    }
+    
     // Check if the Sun piece of the specified color is still on the board
     private boolean isSunPieceOnBoard(Piece.PieceColor color) {
         for (int row = 0; row < 6; row++) {
