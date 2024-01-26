@@ -1,4 +1,6 @@
 public class Point extends Piece {
+    private boolean hasMovedInReverse;
+
     public Point(PieceColor color, String iconPath) {
         super(PieceType.POINT, color, iconPath);
     }
@@ -10,13 +12,30 @@ public class Point extends Piece {
 
         // Check if the move is valid based on the color of the piece
         if (getColor() == PieceColor.BLUE) {
-            return (rowDiff > 0 && rowDiff <= 2 && colDiff == 0) ||
-                    (rowDiff < 0 && rowDiff >= -2 && colDiff == 0);
+            // Forward movement
+            if (!hasMovedInReverse && rowDiff < 0 && rowDiff <= 2 && colDiff == 0) {
+                return true;
+            }
+            // Reverse movement when reaching the other end
+            if (fromRow == 0 && rowDiff > 0 && rowDiff >= -2 && colDiff == 0) {
+                hasMovedInReverse = true;
+                return true;
+            }
+            // No other movements allowed when in reverse
+            return hasMovedInReverse && rowDiff > 0 && rowDiff >= -2 && colDiff == 0;
 
         } else {
-            return (rowDiff < 0 && rowDiff >= -2 && colDiff == 0) ||
-                    (rowDiff > 0 && rowDiff <= 2 && colDiff == 0);
-
+            // Forward movement
+            if (!hasMovedInReverse && rowDiff < 0 && rowDiff >= -2 && colDiff == 0) {
+                return true;
+            }
+            // Reverse movement when reaching the other end
+            if (fromRow == 0 && rowDiff > 0 && rowDiff <= 2 && colDiff == 0) {
+                hasMovedInReverse = true;
+                return true;
+            }
+            // No other movements allowed when in reverse
+            return hasMovedInReverse && rowDiff > 0 && rowDiff <= 2 && colDiff == 0;
         }
     }
 }
