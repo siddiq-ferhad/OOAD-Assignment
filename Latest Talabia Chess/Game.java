@@ -76,6 +76,7 @@ public class Game {
     // Switch the player turn between YELLOW and BLUE
     private void switchPlayer() {
         currentPlayer = (currentPlayer == Piece.PieceColor.YELLOW) ? Piece.PieceColor.BLUE : Piece.PieceColor.YELLOW;
+        board.flipBoard(); //flip the board after switching the player turn
         System.out.println("It's now " + currentPlayer + "'s turn.");
         checkForWinningCondition();
     }
