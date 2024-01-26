@@ -96,7 +96,7 @@ public class Game {
     public void newGame() {
         clearGameStateFile();
         board.resetBoard(); // Reset the board to initial state
-        Piece.PieceColor currentPlayer = Piece.PieceColor.YELLOW;
+        currentPlayer = Piece.PieceColor.YELLOW;
 
         firstClickRow = -1;
         firstClickCol = -1;
