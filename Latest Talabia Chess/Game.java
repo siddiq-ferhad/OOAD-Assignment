@@ -34,8 +34,7 @@ public class Game {
     private void handleFirstClick(int row, int col) {
         Piece clickedPiece = board.getPiece(row, col);
 
-        // Check if the clicked piece is not null and belongs to the current player's
-        // turn
+        // Check if the clicked piece is not null and belongs to the current player's turn
         if (clickedPiece != null && clickedPiece.getColor() == currentPlayer) {
             firstClickRow = row;
             firstClickCol = col;
@@ -96,6 +95,7 @@ public class Game {
     public void newGame() {
         clearGameStateFile();
         board.resetBoard(); // Reset the board to initial state
+        Piece.PieceColor currentPlayer = Piece.PieceColor.YELLOW;
 
         firstClickRow = -1;
         firstClickCol = -1;
