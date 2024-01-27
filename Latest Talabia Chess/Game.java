@@ -6,6 +6,7 @@ public class Game {
     private Piece.PieceColor currentPlayer = Piece.PieceColor.YELLOW;
     private int firstClickRow = -1;
     private int firstClickCol = -1;
+    private int turnCounter = 0;
 
     // Constructor takes an instance of the board
     public Game(Board board) {
@@ -76,9 +77,15 @@ public class Game {
     // Switch the player turn between YELLOW and BLUE
     private void switchPlayer() {
         currentPlayer = (currentPlayer == Piece.PieceColor.YELLOW) ? Piece.PieceColor.BLUE : Piece.PieceColor.YELLOW;
-        board.flipBoard(); //flip the board after switching the player turn
+        board.flipBoard(); // Flip the board after switching the player turn
         System.out.println("It's now " + currentPlayer + "'s turn.");
+
+        // Check if the winning condition has been fulfilled
         checkForWinningCondition();
+        turnCounter++;
+
+        // Check for turn rule
+        checkTurnRule();
     }
 
     // Check if the move is valid based on the piece's rules and the board state
@@ -97,6 +104,7 @@ public class Game {
     public void newGame() {
         clearGameStateFile();
         board.resetBoard(); // Reset the board to initial state
+        turnCounter = 0;
         currentPlayer = Piece.PieceColor.YELLOW;
 
         firstClickRow = -1;
@@ -236,4 +244,40 @@ public class Game {
             e.printStackTrace();
         }
     }
+
+    private void applyTurnRule() {
+        System.out.println("\nTime and Plus pieces has been switched!\n");
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 7; col++) {
+                Piece piece = board.getPiece(row, col);
+    
+                if (piece != null) {
+                    if (piece.getType() == Piece.PieceType.TIME) {
+                        convertTimePiece(piece, row, col);
+                    } else if (piece.getType() == Piece.PieceType.PLUS) {
+                        convertPlusPiece(piece, row, col);
+                    }
+                }
+            }
+        }
+    }
+    
+    private void convertTimePiece(Piece timePiece, int row, int col) {
+        Piece.PieceColor color = timePiece.getColor();
+        String plusIconPath = (color == Piece.PieceColor.BLUE) ? "blue_plus.jpeg" : "yellow_plus.jpeg";
+        board.setPiece(row, col, new Plus(color, plusIconPath));
+    }
+    
+    private void convertPlusPiece(Piece plusPiece, int row, int col) {
+        Piece.PieceColor color = plusPiece.getColor();
+        String timeIconPath = (color == Piece.PieceColor.BLUE) ? "blue_time.jpeg" : "yellow_time.jpeg";
+        board.setPiece(row, col, new Time(color, timeIconPath));
+    }    
+
+    private void checkTurnRule() {
+        // Check if two turns have passed
+        if (turnCounter % 4 == 0) {
+            applyTurnRule();
+        }
+    }    
 }
