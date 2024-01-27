@@ -117,8 +117,10 @@ public class Game {
     // Save the game state to a file
     public void saveGame() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("game_state.txt", false))) {
-            // Save the current player information
+            // Save the current player information and turn counter
             writer.write(currentPlayer.name());
+            writer.newLine();
+            writer.write(String.valueOf(turnCounter));
             writer.newLine();
 
             // Save the piece information
@@ -145,10 +147,12 @@ public class Game {
     // Load the game state from a file
     public void loadGame() {
         try (BufferedReader reader = new BufferedReader(new FileReader("game_state.txt"))) {
-            // Load the current player information
+            // Load the current player information and turn counter
             String currentPlayerInfo = reader.readLine();
+            String turnCounterInfo = reader.readLine();
             if (currentPlayerInfo != null) {
                 currentPlayer = Piece.PieceColor.valueOf(currentPlayerInfo);
+                turnCounter = Integer.parseInt(turnCounterInfo);
             }
 
             // Load the piece information
@@ -192,7 +196,7 @@ public class Game {
                 }
                 row++;
             }
-            System.out.println("Saved file found. Loading the previous game...\n");
+            System.out.println("\nSaved file found. Loading the previous game...");
 
         } catch (IOException e) {
             System.out.println("No saved file found. Starting a new game...\n");
