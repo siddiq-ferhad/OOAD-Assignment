@@ -42,7 +42,5 @@ public class MenuController {
         new Controller(board, boardView);
     }
 
-    // private void exitGame() {
-    //     System.exit(0);
-    // }
+
 }
