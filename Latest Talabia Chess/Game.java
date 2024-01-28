@@ -49,7 +49,7 @@ public class Game {
     private void handleSecondClick(int row, int col) {
         // Check if the second click is a cancellation of the first click
         if (row == firstClickRow && col == firstClickCol) {
-            System.out.println("Canceled selection.");
+            System.out.println("Cancelled selection.");
         } else {
             Piece selectedPiece = board.getPiece(firstClickRow, firstClickCol);
 
@@ -206,11 +206,11 @@ public class Game {
     // Check for the winning condition
     private void checkForWinningCondition() {
         if (!isSunPieceOnBoard(Piece.PieceColor.YELLOW)) {
-            System.out.println("\nBLUE wins! The Sun piece has been captured.\n");
+            System.out.println("\nBLUE wins! The Sun piece has been captured.");
             displayWinner("BLUE");
 
         } else if (!isSunPieceOnBoard(Piece.PieceColor.BLUE)) {
-            System.out.println("\nYELLOW wins! The Sun piece has been captured.\n");
+            System.out.println("\nYELLOW wins! The Sun piece has been captured.");
             displayWinner("YELLOW");
         }
     }
