@@ -9,13 +9,13 @@ public class Game {
     private int firstClickCol = -1;
     private int moveCounter = 0;
 
-    // Constructor takes an instance of the board
+    // (Siddiq) Constructor takes an instance of the board
     public Game(Board board) {
         this.board = board;
         System.out.println("\nIt's now " + currentPlayer + "'s turn.");
     }
 
-    // Constructor takes instances of the board and board view
+    // (Siddiq) Constructor takes instances of the board and board view
     public Game(Board board, BoardView boardView) {
         this.board = board;
         loadGame();
@@ -23,7 +23,7 @@ public class Game {
         System.out.println("\nIt's now " + currentPlayer + "'s turn.");
     }
 
-    // Method to handle button clicks on the board (Can differentiate 1st click & 2nd click)
+    // (Siddiq) Method to handle button clicks on the board (Can differentiate 1st click & 2nd click)
     public void handleButtonClick(int row, int col) {
         if (firstClickRow == -1 && firstClickCol == -1) {
             handleFirstClick(row, col);
@@ -33,7 +33,7 @@ public class Game {
         saveGame();
     }
 
-    // Handle the first click on the board
+    // (Siddiq) Handle the first click on the board
     private void handleFirstClick(int row, int col) {
         Piece clickedPiece = board.getPiece(row, col);
 
@@ -46,7 +46,7 @@ public class Game {
         }
     }
 
-    // Handle the second click on the board
+    // (Siddiq) Handle the second click on the board
     private void handleSecondClick(int row, int col) {
         // Check if the second click is a cancellation of the first click
         if (row == firstClickRow && col == firstClickCol) {
@@ -75,7 +75,7 @@ public class Game {
         firstClickCol = -1;
     }
 
-    // Switch the player turn between YELLOW and BLUE, flip the game board, and check for winning condition
+    // (Siddiq) Switch the player turn between YELLOW and BLUE, flip the game board, and check for winning condition
     private void switchPlayer() {
         currentPlayer = (currentPlayer == Piece.PieceColor.YELLOW) ? Piece.PieceColor.BLUE : Piece.PieceColor.YELLOW;
         board.flipBoard(); // Flip the board after switching the player turn
@@ -116,7 +116,7 @@ public class Game {
         System.out.println("\nIt's now " + currentPlayer + "'s turn.");
     }
 
-    // Save the game state to a file
+    // (Luqman/Izzati) Save the game state to a file
     public void saveGame() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("game_state.txt", false))) {
             // Save the current player information and turn counter
@@ -146,7 +146,7 @@ public class Game {
         }
     }
 
-    // Load the game state from a file
+    // (Luqman/Izzati) Load the game state from a file
     public void loadGame() {
         try (BufferedReader reader = new BufferedReader(new FileReader("game_state.txt"))) {
             // Load the current player information and turn counter
@@ -205,7 +205,7 @@ public class Game {
         }
     }
 
-    // Check for the winning condition
+    // (Siddiq) Check for the winning condition
     private void checkForWinningCondition() {
         if (!isSunPieceOnBoard(Piece.PieceColor.YELLOW)) {
             System.out.println("\nBLUE wins! The Sun piece has been captured.");
@@ -217,7 +217,7 @@ public class Game {
         }
     }
 
-    // Method to display the winner and options to start a new game or quit
+    // (Siddiq) Method to display the winner and options to start a new game or quit
     private void displayWinner(String winner) {
         String message = winner + " wins! The Sun piece has been captured.";
         Object[] options = {"Restart", "Quit"};
@@ -230,7 +230,7 @@ public class Game {
         }
     }
     
-    // Check if the Sun piece of the specified color is still on the board (Winning rule)
+    // (Siddiq) Check if the Sun piece of the specified color is still on the board (Winning rule)
     private boolean isSunPieceOnBoard(Piece.PieceColor color) {
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 7; col++) {
@@ -252,7 +252,7 @@ public class Game {
         }
     }
 
-    // Switch Plus and Time pieces
+    // (Siddiq) Switch Plus and Time pieces
     private void switchPieces() {
         System.out.println("\nTime and Plus pieces has been switched!\n");
         for (int row = 0; row < 6; row++) {
@@ -270,20 +270,21 @@ public class Game {
         }
     }
     
-    // Convert Time piece to Plus piece
+    // (Siddiq) Convert Time piece to Plus piece
     private void convertTimePiece(Piece timePiece, int row, int col) {
         Piece.PieceColor color = timePiece.getColor();
         String plusIconPath = (color == Piece.PieceColor.BLUE) ? "blue_plus.jpeg" : "yellow_plus.jpeg";
         board.setPiece(row, col, new Plus(color, plusIconPath));
     }
     
-    // Convert Plus piece to Time piece
+    // (Siddiq) Convert Plus piece to Time piece
     private void convertPlusPiece(Piece plusPiece, int row, int col) {
         Piece.PieceColor color = plusPiece.getColor();
         String timeIconPath = (color == Piece.PieceColor.BLUE) ? "blue_time.jpeg" : "yellow_time.jpeg";
         board.setPiece(row, col, new Time(color, timeIconPath));
     }    
 
+    // (Siddiq) Check if the total moves has fulfilled the specified condition
     private void checkMoves() {
         // Check if four moves have passed
         if (moveCounter % 4 == 0) {
