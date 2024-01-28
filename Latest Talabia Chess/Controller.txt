@@ -29,11 +29,7 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Handle button click event
-            // For simplicity, let's assume this is where you want to perform the move logic
-            // You can modify this part based on your actual game rules
-            // Example: Move a piece from (row, col) to a new position
-            // For now, we'll just swap the clicked piece with the piece in the top-left corner (0, 0)
+
             board.movePiece(row, col, 0, 0);
 
             // Update the GUI to reflect the changes
