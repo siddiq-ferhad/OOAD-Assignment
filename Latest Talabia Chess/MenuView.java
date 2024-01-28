@@ -50,9 +50,6 @@ public class MenuView {
         loadButton.setFont(new Font("Arial", Font.BOLD, 15));
         loadButton.setPreferredSize(new Dimension(500, 50));
 
-        // exitButton = new JButton("Exit");
-        // exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
         panel.add(Box.createVerticalGlue());
         panel.add(titleLabel);
         panel.add(Box.createVerticalStrut(120));
@@ -60,8 +57,6 @@ public class MenuView {
         panel.add(Box.createVerticalStrut(15));
         panel.add(loadButton);
         panel.add(Box.createVerticalStrut(70));
-        // panel.add(exitButton);
-        // panel.add(Box.createVerticalGlue());
 
         frame.getContentPane().add(backgroundLabel,BorderLayout.CENTER);
         frame.setVisible(true);
@@ -70,7 +65,7 @@ public class MenuView {
     public void addButtonListener(ActionListener listener) {
         startButton.addActionListener(listener);
         loadButton.addActionListener(listener);
-        //exitButton.addActionListener(listener);
+
     }
 
     // Getter for startButton
@@ -82,11 +77,6 @@ public class MenuView {
     public JButton getLoadButton() {
         return loadButton;
     }
-
-    // // Getter for exitButton
-    // public JButton getExitButton() {
-    //     return exitButton;
-    // }
 
     public void dispose() {
         frame.dispose();
