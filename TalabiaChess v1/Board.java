@@ -2,7 +2,7 @@ public class Board {
     private Piece[][] pieces;
 
     public Board() {
-        // Initialize the 8x8 chessboard
+        // Initialize the 7x6 chessboard
         pieces = new Piece[6][7];
         initializeBoard();
     }
