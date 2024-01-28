@@ -68,11 +68,7 @@ public class Controller {
         }
     }
 
-    // private class LoadGameListener implements ActionListener{
-    //     public void actionPerformed(ActionEvent e){
-    //         System.out.println("You click Load Game Button");
-    //     }
-    // }
+
 
     private class ExitGameListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
