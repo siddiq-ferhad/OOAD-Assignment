@@ -1,0 +1,17 @@
+// rules for Time Piece
+
+public class Time extends Piece {
+    public Time(PieceColor color, String iconPath) {
+        super(PieceType.TIME, color, iconPath);
+    }
+
+    @Override
+    public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol) {
+        // Calculate the absolute differences in row and column positions
+        int rowDiff = Math.abs(toRow - fromRow);
+        int colDiff = Math.abs(toCol - fromCol);
+
+        // move diagonally (equal row and column differences)
+        return rowDiff == colDiff;
+    }
+}

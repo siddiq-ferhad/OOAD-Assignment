@@ -1,0 +1,8 @@
+BLUE
+13
+TIME	YELLOW	yellow_time.jpeg,HOURGLASS	YELLOW	yellow_hourglass.jpeg,EMPTY,PLUS	YELLOW	yellow_plus.jpeg,PLUS	YELLOW	yellow_plus.jpeg,EMPTY,TIME	YELLOW	yellow_time.jpeg
+POINT	YELLOW	yellow_point.jpeg,POINT	YELLOW	yellow_point.jpeg,POINT	YELLOW	yellow_point.jpeg,EMPTY,POINT	YELLOW	yellow_point.jpeg,EMPTY,POINT	YELLOW	yellow_point.jpeg
+EMPTY,EMPTY,EMPTY,EMPTY,SUN	YELLOW	yellow_sun.jpeg,EMPTY,EMPTY
+EMPTY,EMPTY,EMPTY,EMPTY,EMPTY,POINT	YELLOW	yellow_point.jpeg,POINT	BLUE	blue_point.jpeg
+POINT	BLUE	blue_point.jpeg,POINT	BLUE	blue_point.jpeg,POINT	BLUE	blue_point.jpeg,HOURGLASS	BLUE	blue_hourglass.jpeg,POINT	BLUE	blue_point.jpeg,POINT	BLUE	blue_point.jpeg,EMPTY
+TIME	BLUE	blue_time.jpeg,EMPTY,PLUS	BLUE	blue_plus.jpeg,SUN	BLUE	blue_sun.jpeg,EMPTY,HOURGLASS	BLUE	blue_hourglass.jpeg,TIME	BLUE	blue_time.jpeg
