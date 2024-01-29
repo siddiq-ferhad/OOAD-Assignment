@@ -7,6 +7,7 @@ public class Point extends Piece {
     }
 
     @Override
+    // Check if the movement is valid based on piece's logic
     public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol) {
         int rowDiff = toRow - fromRow;
         int colDiff = Math.abs(toCol - fromCol);
