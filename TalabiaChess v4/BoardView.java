@@ -96,6 +96,7 @@ public class BoardView extends JFrame implements ComponentListener {
         repaint();
     }
 
+    // Izzati
     private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
         // Resize the given icon to the specified width and height
         Image resizedImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -103,6 +104,7 @@ public class BoardView extends JFrame implements ComponentListener {
     }
 
     @Override
+    // Izzati
     public void componentResized(ComponentEvent e){
         // Update the icon size based on the frame size
         iconSize = Math.min(getWidth() / 8, getHeight() / 6);
@@ -110,7 +112,7 @@ public class BoardView extends JFrame implements ComponentListener {
         updateGUI();
     }
 
-    // Not used in this implementation
+    // (Izzati) Not used in this implementation
     @Override
     public void componentMoved(ComponentEvent e){
     }
