@@ -102,7 +102,7 @@ public class Game {
         }
     }
 
-    // Start a new game
+    // (Izzati) Start a new game
     public void newGame() {
         clearGameStateFile();
         board.resetBoard(); // Reset the board to initial state
@@ -243,7 +243,7 @@ public class Game {
         return false; // Sun piece not found, game ends
     }
 
-    // Clear the text file (Saved game)
+    // (Izzati) Clear the text file (Saved game)
     private void clearGameStateFile() {
         try (PrintWriter writer = new PrintWriter(new FileWriter("game_state.txt"))) {
             writer.print("");
