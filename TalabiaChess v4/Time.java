@@ -5,6 +5,7 @@ public class Time extends Piece {
     }
 
     @Override
+    // Check if the movement is valid based on piece's logic
     public boolean isValidMove(int fromRow, int fromCol, int toRow, int toCol) {
         // Calculate the absolute differences in row and column positions
         int rowDiff = Math.abs(toRow - fromRow);
