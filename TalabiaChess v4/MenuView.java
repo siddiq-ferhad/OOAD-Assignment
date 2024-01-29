@@ -12,7 +12,7 @@ public class MenuView {
         initializeGUI();
     }
 
-    // Set up the main frame and initialize GUI
+    // (Siddiq/Izzati) Set up the main frame and initialize GUI
     private void initializeGUI() {
         frame = new JFrame("Talabia Chess");
         frame.setSize(800, 500);
@@ -76,7 +76,7 @@ public class MenuView {
         return loadButton;
     }
 
-    // Dispose of the menu's frame
+    // (Siddiq) Dispose of the menu's frame
     public void dispose() {
         frame.dispose();
     }
