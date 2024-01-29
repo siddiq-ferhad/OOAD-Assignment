@@ -61,17 +61,18 @@ public class MenuView {
         frame.setVisible(true);
     }
 
+    // Izzati
     public void addButtonListener(ActionListener listener) {
         startButton.addActionListener(listener);
         loadButton.addActionListener(listener);
     }
 
-    // Getter for startButton
+    // (Izzati) Getter for startButton
     public JButton getStartButton() {
         return startButton;
     }
 
-    // Getter for loadButton
+    // (Izzati) Getter for loadButton
     public JButton getLoadButton() {
         return loadButton;
     }
