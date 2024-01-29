@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentListener;
 import java.awt.event.ComponentEvent;
 
-// (Aqra) Display the chess board and provide a visual representation of the current game state
+// ( Aqra) Display the chess board and provide a visual representation of the current game state
 public class BoardView extends JFrame implements ComponentListener {
     private Board board;
     private JButton[][] buttons;
@@ -20,6 +20,7 @@ public class BoardView extends JFrame implements ComponentListener {
         addComponentListener(this);
     }
 
+    // (Aqra) Intialize the board with GUI
     private void initializeGUI() {
         // Set up GUI
         setLayout(new GridLayout(6, 7));
@@ -66,6 +67,7 @@ public class BoardView extends JFrame implements ComponentListener {
         setJMenuBar(menuBar);
     }
 
+    // Aqra
     public void addButtonListener(int row, int col, ActionListener listener) {
         buttons[row][col].addActionListener(listener); // Add ActionListener for all rows/cols
     }
@@ -76,6 +78,7 @@ public class BoardView extends JFrame implements ComponentListener {
         exitItem.addActionListener(ExitGameListener); // Add ActionListener for exit game
     }
 
+    // Aqra
     public void updateGUI() {
         // Update the icons on the buttons based on the current state of the board (after movements)
         for (int row = 0; row < 6; row++) {
