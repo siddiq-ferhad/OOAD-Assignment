@@ -1,4 +1,4 @@
-// Represent a Time chess piece
+// (Aqilah) Represent a Time chess piece
 public class Time extends Piece {
     public Time(PieceColor color, String iconPath) {
         super(PieceType.TIME, color, iconPath);
