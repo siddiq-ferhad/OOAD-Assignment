@@ -37,7 +37,7 @@ public class Controller {
         boardView.addExitGameListener(new ExitGameListener());
     }
 
-    // ActionListener implementation for the board buttons
+    // (Aqra) ActionListener implementation for the board buttons
     private class ButtonClickListener implements ActionListener {
         private int row;
         private int col;
