@@ -1,4 +1,4 @@
-// Represent a Plus chess piece
+// (Aqilah) Represent a Plus chess piece
 public class Plus extends Piece {
     public Plus(PieceColor color, String iconPath) {
         super(PieceType.PLUS, color, iconPath);
