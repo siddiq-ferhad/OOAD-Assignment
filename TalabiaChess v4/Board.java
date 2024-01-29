@@ -8,6 +8,7 @@ public class Board {
         initializeBoard();
     }
 
+    // Aqra
     private void initializeBoard() {
         // Set up the initial positions of pieces on the board
         pieces[0][0] = new Plus(Piece.PieceColor.BLUE, "blue_plus.jpeg");
@@ -41,23 +42,27 @@ public class Board {
         pieces[4][6] =  new Point(Piece.PieceColor.YELLOW, "yellow_point.jpeg");
     }
 
+    // Aqra
     public Piece getPiece(int row, int col) {
         // Get the piece at a specific position on the board
         return pieces[row][col];
     }
 
+    // Aqra
     public void setPiece(int row, int col, Piece piece) {
         // Put the piece at specific location
         pieces[row][col] = piece;
     }
 
+    // Aqra
     public void movePiece(int fromRow, int fromCol, int toRow, int toCol) {
         // Move a chess piece from one position to another
         Piece pieceToMove = pieces[fromRow][fromCol];
         pieces[toRow][toCol] = pieceToMove;
         pieces[fromRow][fromCol] = null; // Clear the original position
     }
-    
+
+    // Aqra
     public boolean isPathClear(int fromRow, int fromCol, int toRow, int toCol) {
         // Check if the path between two positions is clear for moving a piece
         int rowStep = Integer.compare(toRow, fromRow);
