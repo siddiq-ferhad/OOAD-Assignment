@@ -75,7 +75,8 @@ public class Board {
         }
         return true;
     }
-    
+
+    // Izzati
     public void resetBoard(){
         // Clear current gameplay and initialize board again
         for (int row = 0; row < 6; row++) {
@@ -86,6 +87,7 @@ public class Board {
         initializeBoard();
     }
 
+    // Izzati
     public void flipBoard(){
         // Create a flipped version of the board
         Piece[][] flipBoard = new Piece[6][7];
@@ -97,6 +99,7 @@ public class Board {
         setBoard(flipBoard);
     }
 
+    // Izzati
     public void setBoard(Piece[][] board){
         this.pieces = board;
     }
