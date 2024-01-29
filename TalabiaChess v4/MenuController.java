@@ -10,6 +10,7 @@ public class MenuController {
         addListeners();
     }
 
+    // Izzati/Siddiq
     private void addListeners() {
         // Add action listeners to the buttons in MenuView (startButton and loadButton)
         view.addButtonListener(new ActionListener() {
