@@ -1,4 +1,4 @@
-// (Aqilah) Represent a Point chess piece
+// (Aqilah/Siddiq) Represent a Point chess piece
 public class Point extends Piece {
     private boolean hasMovedInReverse;
 
