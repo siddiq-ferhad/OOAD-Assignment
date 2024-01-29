@@ -89,7 +89,7 @@ public class Game {
         checkMoves();
     }
 
-    // Check if the move is valid based on the piece's rules and the board state
+    // (Siddiq) Check if the move is valid based on the piece's rules and the board state
     private boolean isValidMove(Piece piece, int fromRow, int fromCol, int toRow, int toCol) {
         Piece clickedPiece = board.getPiece(firstClickRow, firstClickCol);
 
