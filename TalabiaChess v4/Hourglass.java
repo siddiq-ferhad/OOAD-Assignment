@@ -1,4 +1,4 @@
-// Represent an Hourglass chess piece
+// (Aqilah) Represent an Hourglass chess piece
 public class Hourglass extends Piece {
     public Hourglass(PieceColor color, String iconPath) {
         super(PieceType.HOURGLASS, color, iconPath);
