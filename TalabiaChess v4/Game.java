@@ -23,7 +23,7 @@ public class Game {
         System.out.println("\nIt's now " + currentPlayer + "'s turn.");
     }
 
-    // (Siddiq) Method to handle button clicks on the board (Can differentiate 1st click & 2nd click)
+    // (Siddiq/Luqman) Method to handle button clicks on the board (Can differentiate 1st click & 2nd click)
     public void handleButtonClick(int row, int col) {
         if (firstClickRow == -1 && firstClickCol == -1) {
             handleFirstClick(row, col);
