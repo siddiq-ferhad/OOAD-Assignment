@@ -62,7 +62,7 @@ public class Board {
         pieces[fromRow][fromCol] = null; // Clear the original position
     }
 
-    // Aqra & Aqilah
+    // Aqilah
     public boolean isPathClear(int fromRow, int fromCol, int toRow, int toCol) {
         // Check if the path between two positions is clear for moving a piece
         int rowStep = Integer.compare(toRow, fromRow);
