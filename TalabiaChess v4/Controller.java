@@ -31,7 +31,7 @@ public class Controller {
         }
     }
 
-    // Menu bar listener
+    // (Izzati) Menu bar listener
     private void menuBarListener(){
         boardView.addNewGameListener(new NewGameListener());
         boardView.addExitGameListener(new ExitGameListener());
