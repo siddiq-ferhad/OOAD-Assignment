@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentListener;
 import java.awt.event.ComponentEvent;
 
-// ( Aqra) Display the chess board and provide a visual representation of the current game state
+// (Aqra) Display the chess board and provide a visual representation of the current game state
 public class BoardView extends JFrame implements ComponentListener {
     private Board board;
     private JButton[][] buttons;
