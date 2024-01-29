@@ -1,4 +1,4 @@
-// Manage the arrangement and movement of chess pieces on the board
+// (Aqra) Manage the arrangement and movement of chess pieces on the board
 public class Board {
     private Piece[][] pieces;
 
