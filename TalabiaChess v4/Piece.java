@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-// The abstract base class for chess pieces
+// (Aqra) The abstract base class for chess pieces
 public abstract class Piece {
     private PieceType type;
     private PieceColor color;
