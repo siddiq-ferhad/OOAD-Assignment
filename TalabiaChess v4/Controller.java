@@ -6,7 +6,7 @@ public class Controller {
     private BoardView boardView;
     private Game game; 
 
-    // Constructor takes an instance of the board and board view
+    // (Aqra) Constructor takes an instance of the board and board view
     public Controller(Board board, BoardView boardView) {
         this.boardView = boardView;
         this.game = new Game(board, boardView); // Initialize the Game class
@@ -14,7 +14,7 @@ public class Controller {
         menuBarListener();
     }
 
-    // Constructor takes an instance of the board, board view, and a string parameter
+    // (Aqra) Constructor takes an instance of the board, board view, and a string parameter
     public Controller(Board board, BoardView boardView, String x) {
         this.boardView = boardView;
         this.game = new Game(board); // Initialize the Game class
@@ -22,7 +22,7 @@ public class Controller {
         menuBarListener();
     }
 
-    // Initialize button listeners for the board
+    // (Aqra) Initialize button listeners for the board
     private void initializeButtonListeners() {
         for (int row = 0; row < 6; row++) {
             for (int col = 0; col < 7; col++) {
