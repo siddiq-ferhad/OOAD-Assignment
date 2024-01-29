@@ -1,4 +1,4 @@
-// Represent a Sun chess piece
+//(Aqilah) Represent a Sun chess piece
 public class Sun extends Piece {
     public Sun(PieceColor color, String iconPath) {
         super(PieceType.SUN, color, iconPath);
