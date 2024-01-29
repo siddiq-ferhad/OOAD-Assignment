@@ -24,6 +24,7 @@ public class MenuController {
         });
     }
 
+    // Siddiq
     private void startGame() {
         // Dispose of the main menu view
         view.dispose();
@@ -33,6 +34,7 @@ public class MenuController {
         new Controller(board, boardView, "");
     }
 
+    // Siddiq
     private void loadGame() {
         // Dispose of the main menu view
         view.dispose();
