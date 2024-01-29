@@ -59,6 +59,7 @@ public class Controller {
         }
     }
 
+    // Siddiq
     private class NewGameListener implements ActionListener{
         // Handle the "New Game" menu item click event
         public void actionPerformed(ActionEvent e){
@@ -69,6 +70,7 @@ public class Controller {
         }
     }
 
+    // Siddiq
     private class ExitGameListener implements ActionListener{
         // Handle the "Exit" menu item click event and exit the program
         public void actionPerformed(ActionEvent e){
@@ -76,7 +78,7 @@ public class Controller {
         }
     }
 
-    // Update the GUI based on the current state of the board
+    // (Siddiq) Update the GUI based on the current state of the board
     private void updateView() {
         boardView.updateGUI();
     }
