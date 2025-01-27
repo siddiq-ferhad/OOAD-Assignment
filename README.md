@@ -44,6 +44,8 @@ java Main
    - The game automatically saves after every move.
    - To load a saved game, click "Load Game" from the main menu.
 
+📄 *Refer to `Talabia Chess.pdf` for detailed gameplay and images.*
+
 ---
 
 Feel free to contribute or modify the project to improve its functionality! 🚀
