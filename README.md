@@ -1,4 +1,4 @@
-# Getting Started with Talabia Chess
+# Talabia Chess
 
 Talabia Chess is a customized chess game developed in Java. It introduces unique rules and gameplay mechanics while maintaining the essence of traditional chess. This project was developed as a programming assignment and is now available for public access.
 
